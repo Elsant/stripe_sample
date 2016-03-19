@@ -1,0 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: stripesample_development
+  host: localhost
+  port: 5432
+  username: pg
+  password: pg
+
+test:
+  <<: *default
+  database: stripesample_test
+  host: localhost
+  port: 5432
+  username: pg
+  password: pg
+
+
+production:
+  <<: *default
+  database: stripesample_production
+  username: stripesample
+  password: <%= ENV['STRIPESAMPLE_DATABASE_PASSWORD'] %>
